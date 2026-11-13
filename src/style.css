@@ -1,0 +1,223 @@
+/* Estilos globales */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: #0077cc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #005fa3;
+}
+
+/* Contenedor principal */
+#root, .app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Cabecera */
+header {
+  background-color: #0077cc;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+}
+
+/* Navegación */
+nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+nav a.active {
+  font-weight: 700;
+  border-bottom: 2px solid white;
+  padding-bottom: 0.2rem;
+}
+
+/* Contenido principal */
+main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Formularios */
+form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  max-width: 400px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  display: block;
+  color: #222;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus {
+  outline: none;
+  border-color: #0077cc;
+  box-shadow: 0 0 5px rgba(0, 119, 204, 0.5);
+}
+
+/* Botones */
+button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+button:focus {
+  background-color: #005fa3;
+  outline: none;
+}
+
+/* Mensajes de error y éxito */
+.error-message {
+  color: #cc0000;
+  font-size: 0.9rem;
+  margin-top: -0.75rem;
+}
+
+.success-message {
+  color: #007700;
+  font-size: 0.9rem;
+  margin-top: -0.75rem;
+}
+
+/* Listados */
+ul.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.list li {
+  background-color: white;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul.list li .item-info {
+  flex: 1;
+}
+
+ul.list li button {
+  margin-left: 1rem;
+  background-color: #cc0000;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+}
+
+ul.list li button:hover {
+  background-color: #990000;
+}
+
+/* Loader */
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #0077cc;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mensajes generales */
+.message {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+}
+
+.message.info {
+  background-color: #e7f3ff;
+  color: #3178c6;
+}
+
+.message.warning {
+  background-color: #fff4e5;
+  color: #a67c00;
+}
+
+.message.error {
+  background-color: #ffe5e5;
+  color: #cc0000;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main {
+    padding: 1rem;
+  }
+
+  form {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  header {
+    font-size: 1.25rem;
+    padding: 1rem;
+  }
+}
