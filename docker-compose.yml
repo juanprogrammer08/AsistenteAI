@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: yeruzza_db
+    restart: always
+    environment:
+      POSTGRES_USER: studio
+      POSTGRES_PASSWORD: studio
+      POSTGRES_DB: producto
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U studio"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - yeruzza_network
+
+  api:
+    build:
+      context: ./api
+    container_name: yeruzza_api
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      AUTH_SECRET: "${AUTH_SECRET:-}"
+      DATABASE_URL: "${DATABASE_URL:-postgresql+psycopg://studio:studio@db:5432/producto}"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - yeruzza_network
+
+volumes:
+  pgdata:
+
+networks:
+  yeruzza_network:
+    driver: bridge
